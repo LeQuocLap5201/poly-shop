@@ -1,0 +1,736 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+  
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+}
+
+#fp-nav ul li .fp-tooltip {
+    font-size: 1vmax;
+    font-weight: 600;
+    -webkit-text-stroke: thin rgb(0, 0, 0);
+}
+
+header{
+    width: 100%;
+    height: 100vh;
+    background: rgb(48,48,48);
+    background: linear-gradient(180deg, rgba(48,48,48,1) 0%, rgba(0,0,0,1) 100%);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.link-cart{
+    position: relative;
+    color: rgb(255, 255, 255);
+    font-size: 1.5vmax;
+    margin: 0 2vmax;
+    cursor: pointer;
+}
+
+lord-icon.icon-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5vmax;
+    height: 2.5vmax;
+}
+
+.notifi{
+    position: absolute;
+    width: .8vmax;
+    height: .8vmax;
+    background-color: red;
+    border-radius: 50%;
+    top: 0;
+    right: -25%;
+    visibility: hidden;
+}
+
+.menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 5vmax;
+    padding: 1vmax 3vmax;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu .logo{
+    width: 10vmax;
+    height: 100%;
+    position: relative;
+}
+
+.menu .logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nav-links{
+    margin-left: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 40vmax;
+}
+
+.nav-links li{
+    list-style: none;
+    margin: 0 2vmax;
+}
+
+.nav-links a{
+    color: white;
+    font-size: 1.2vmax;
+    text-transform: uppercase;
+    padding: .2vmax 0;
+    letter-spacing: .2vmax;
+    margin: 1vmax 0;
+    position: relative;
+}
+
+.nav-links a::before{
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: .1vmax;
+    background-color: white;
+    transition: .5s;
+}
+
+.nav-links a:hover::before{
+    width: 100%;
+}
+
+.burger{
+    width: 3vmax;
+    height: 3vmax;
+    display: none;
+    cursor: pointer;
+}
+
+.burger div{
+    position: relative;
+    width: 3vmax;
+    height: 2px;
+    background-color: white;
+    margin: .5vmax 0;
+    transition: .5s;
+}
+
+header img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+header h1.header__title{
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    font-size: 6vmax;
+    font-weight: 700;
+    -webkit-text-stroke: .1vmax rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    text-shadow: 0 0 .5vmax rgba(255, 255, 255, 0.2),
+                0 0 1vmax rgba(255, 255, 255, 0.2),
+                0 0 1.5vmax rgba(255, 255, 255, 0.2),
+                0 0 2vmax rgba(255, 255, 255, 0.2),
+                0 0 2.5vmax rgba(255, 255, 255, 0.2),
+                0 0 3vmax rgba(255, 255, 255, 0.2);
+}
+
+header h1.header__title span{
+    font-size: 4vmax;
+    font-weight: 500;
+}
+
+.main{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.background-black{
+    width: 200%;
+    height: 60vh;
+    background-color: rgb(0, 0, 0);
+    transform-origin: bottom left;
+    transform: rotate(-15deg);
+}
+
+.bg-stroke{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    opacity: .5;
+    animation: bg-stroke 3s infinite ease-in-out ;
+}
+
+@keyframes bg-stroke{
+    0%{
+        top: 40%;
+    }
+    50%{
+        top: 50%;
+    }
+    100%{
+        top: 40%;
+    }
+}
+
+.bg-stroke img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.main-box{
+    position: absolute;
+    background-color: rgb(121, 121, 121);
+}
+
+.main-box .box{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 1vmax rgba(0, 0, 0, 0.5),
+                0 0 1.5vmax rgba(0, 0, 0, 0.5);
+}
+
+.main-box .box .box-child{
+    position: absolute;
+    opacity: 0;
+    transition: 1s;
+    background-color: rgb(121, 121, 121);
+    box-shadow: 0 0 1vmax rgba(0, 0, 0, 0.5),
+                0 0 1.5vmax rgba(0, 0, 0, 0.5);
+}
+
+.main-box .box img,
+.main-box .box .box-child img{
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.main-box .box img:hover ~ .box-child{
+    opacity: 1;
+}
+
+.main-box1{  
+    top: 10%;
+    right: 5%;
+    width: 30%;
+}
+
+.box-child1{
+    top: 70%;
+    left: 10%;
+    width: 80%;
+}
+
+.main-box2{
+    bottom: 5%;
+    left: 5%;
+    width: 25%;
+}
+
+.box-child2{
+    bottom: 5%;
+    left: 80%;
+    width: 100%;
+}
+
+.link-shop{
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    display: flex;
+    align-items: center;
+}
+
+.link-shop p,
+.link-shop a{
+    font-size: 1.5vmax;
+    font-weight: 700;
+    color: rgb(77, 77, 77);
+}
+
+.link-shop a{
+    color: rgb(0, 0, 0);
+    margin-left: 1vmax;
+    text-transform: uppercase;
+    border-bottom: .2vmax solid rgb(14, 13, 13);
+    transition: .5s;
+}
+
+.link-shop a:hover{
+    transform: scale(1.1);
+}
+
+.main-vd{
+    background-color: rgb(0, 0, 0);
+    padding: 0 4vmax;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.main-vd::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.main-vd video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .2;
+    pointer-events: none;
+}
+
+.main-vd .main-vd-txt{
+    position: relative;
+    width: 50%;
+    z-index: 2;
+}
+
+.main-vd .main-vd-txt h2{
+    color: rgb(255, 255, 255);
+    font-size: 3vmax;
+    font-weight: 800;
+}
+
+.main-vd .main-vd-txt p{
+    color: rgb(255, 255, 255);
+    font-size: 1vmax;
+    font-weight: 600;
+    margin-bottom: 2vmax;
+}
+
+.main-vd .main-vd-txt a{
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 1.2vmax;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    letter-spacing: .1vmax;
+    padding: .5vmax 1vmax;
+    background-color: white;
+    transition: .5s;
+}
+
+.main-vd .main-vd-txt a:hover{
+    box-shadow: 0 0 .5vmax rgba(255, 255, 255, 0.2),
+                0 0 1vmax rgba(255, 255, 255, 0.2),
+                0 0 1.5vmax rgba(255, 255, 255, 0.2),
+                0 0 2vmax rgba(255, 255, 255, 0.2),
+                0 0 2.5vmax rgba(255, 255, 255, 0.2),
+                0 0 3vmax rgba(255, 255, 255, 0.2),
+                0 0 3.5vmax rgba(255, 255, 255, 0.2),
+                0 0 4vmax rgba(255, 255, 255, 0.2);
+}
+
+.main-vd .main-vd-video{
+    position: relative;
+    margin-left: 3vmax;
+    width: 100%;
+    height: 30vmax;
+    z-index: 1;
+}
+
+.main-vd .main-vd-video video{
+    opacity: 1;
+}
+
+
+/* Fashion brand */
+.main-fashion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 2vmax;
+}
+
+.main-fashion-title{
+    width: 100%;
+}
+
+.main-fashion-h2{
+    width: 30%;
+    height: 100%;
+    text-align: center;
+    margin: 0 auto;
+    overflow: hidden;
+    border-bottom: .5vmax solid rgb(0, 0, 0);
+}
+
+.main-fashion-h2 h2{
+    padding: .5vmax 2vmax;
+    font-size: 2.5vmax;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.swiper-container {
+    width: 85%;
+    padding: 2vw 0;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 15vw;
+    height: 25vw;
+}
+
+.swiper-slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.marquee{
+    position: absolute;
+    bottom: 40%;
+    left: -50%;
+    width: 200%;
+    transform: rotate(-20deg);
+}
+
+.marquee marquee{
+    font-size: 10vmax;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.marquee marquee.mq1{
+    z-index: 100;
+    color: transparent;
+    -webkit-text-stroke: .2vmax black;
+}
+
+.au-box{
+    width: 100%;
+    height: calc(100vh - 4vmax);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.main-au-title{
+    width: 30%;
+    padding-left: 4vmax;
+}
+
+.main-au-h2{
+    width: 100%;
+    height: 100%;
+    padding: 1.5vmax 1vmax;
+    overflow: hidden;
+    border-left: .5vmax solid rgb(0, 0, 0);
+}
+
+.main-au-h2 h2{
+    text-transform: uppercase;
+    font-size: 2vmax;
+    letter-spacing: 1.5vmax;
+}
+
+.main-au-h2 h2 span{
+    font-size: 6vmax;
+    color: transparent;
+    -webkit-text-stroke: .2vmax black;
+}
+
+.main-au-content{
+    width: 70%;
+    height: 90%;
+    position: relative;
+}
+
+.au-content-img{
+    position: absolute;
+    width: 30%;
+}
+
+.au-content-img2{
+    bottom: 0;
+    left: 60%;
+}
+
+.au-content-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.au-content{
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    z-index: 2;
+    padding: 2vmax;
+    width: 45%;
+    background-color: rgb(245, 245, 245);
+    box-shadow: 0 0 1vmax rgba(0, 0, 0, 0.3);
+}
+
+.au-content p{
+    font-size: 1vmax;
+    font-weight: 600;
+}
+
+footer{
+    width: 100%;
+    height: 4vmax;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    background-color: black;
+    font-size: 1.5vmax;
+    font-weight: 600;
+    margin-top: auto;
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(1vmax);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@media screen and (max-width:768px){
+    lord-icon.icon-cart{
+        width: 3.3vmax;
+        height: 3.3vmax;
+    }
+
+    .link-cart{
+        color: rgb(255, 255, 255);
+        font-size: 2.5vmax;
+        margin: 0 3vmax 0 auto;
+    }    
+    .nav-links{
+        position: absolute;
+        right: 0;
+        top: 5vmax;
+        height: calc(100vh - 5vmax);
+        background-color: rgba(0, 0, 0, 0.5);
+        min-width: 100%;
+        flex-direction: column;
+        transform: translateX(100%);
+        transition: .5s;
+        backdrop-filter: blur(5px);
+    }
+    .nav-links li{
+        opacity: 0;
+    }
+    .burger{
+        display: block;
+    }
+    .nav-links a{
+        font-size: 2vmax;
+        font-weight: 700;
+    }
+    .nav-links a:hover{
+        text-shadow: 0 0 .5vmax rgba(255, 255, 255, 0.2),
+                0 0 1vmax rgba(255, 255, 255, 0.2),
+                0 0 1.5vmax rgba(255, 255, 255, 0.2),
+                0 0 2vmax rgba(255, 255, 255, 0.2),
+                0 0 2.5vmax rgba(255, 255, 255, 0.2),
+                0 0 3vmax rgba(255, 255, 255, 0.2),
+                0 0 3.5vmax rgba(255, 255, 255, 0.2),
+                0 0 4vmax rgba(255, 255, 255, 0.2);
+    }
+    .nav-links a::before{
+        display: none;
+    }
+    .main-vd{
+        flex-wrap: wrap;
+    }
+    .main-vd .main-vd-txt{
+        width: 100%;
+    }
+    .main-vd .main-vd-txt h2{
+        font-size: 4vmax;
+    }
+    .main-vd .main-vd-txt p{
+        font-size: 1.5vmax;
+    }
+    .main-vd .main-vd-txt a{
+        font-size: 2vmax;
+    }
+    .main-vd .main-vd-video{
+        margin: 0;
+    }
+    .swiper-slide {
+        width: 100%;
+        height: 40vmax;
+    }
+    .main-fashion-h2 h2{
+        font-size: 4vmax;
+    }
+    .bg-stroke{
+        width: 70%;
+    }
+    .main-box1{  
+        width: 40%;
+    }
+    .main-box2{
+        width: 40%;
+    }
+    .box-child2{
+        bottom: 50%;
+    }
+    
+    .main-au-title{
+        width: 100%;
+        padding: 4vmax;
+    }
+    
+    .main-au-h2 h2{
+        font-size: 2.5vmax;
+    }
+    
+    .main-au-h2 h2 span{
+        font-size: 8vmax;
+    }
+    
+    .main-au-content{
+        width: 100%;
+        padding: 0 3vmax;
+    }
+    
+    .au-content-img2{
+        bottom: 20%;
+    }
+    .au-content{
+        width: 60%;
+    } 
+    .au-content p{
+        font-size: 1.5vmax;
+    }
+}
+
+@media screen and (max-width:375px){
+    .main-vd .main-vd-txt p{
+        font-size: 2vmax;
+    }
+
+    .main-fashion-h2{
+        width: 50%;
+    }
+
+    .main-box1{  
+        width: 50%;
+    }
+    .main-box2{
+        width: 40%;
+    }
+    
+    .main-au-content{
+        width: 100%;
+        padding: 0 3vmax;
+    }
+    
+    .au-content-img2{
+        bottom: 20%;
+    }
+    .au-content{
+        width: 65%;
+        top: 10%;
+    } 
+    .au-content p{
+        font-size: 1.7vmax;
+    }
+}
+
+.nav-active{
+    transform: translateX(0%);
+}
+
+.burger div.line2::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    transition: .5s;
+}
+
+.burger.toggle div.line2{
+    transform: rotate(45deg);
+    transform: .5s;
+}
+
+.burger.toggle div.line2::before{
+    transform: rotate(90deg);
+    transition-delay: .1s;
+}
+
+
+.burger.toggle div.line1,
+.burger.toggle div.line3{
+    width: 0;
+}
+
+.shop-act{
+    background-color: rgb(0, 0, 0) !important;
+    color: white !important;
+    box-shadow: none !important;
+}
+
+
